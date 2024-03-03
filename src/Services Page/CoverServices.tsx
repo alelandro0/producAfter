@@ -1,11 +1,10 @@
-
-
+import './StylesServices/CoverServices.css'
 
 export const CoverServices = () => {
   return (
-    <div>
-      <h2>CoverServices Content</h2>
-    </div>
+      <section className='CoverServices'>
+        <h1 className='title-services'>Servicios</h1>
+      </section>
   );
 };
 

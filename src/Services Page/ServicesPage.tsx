@@ -1,16 +1,21 @@
+import CoverServices from './CoverServices'; 
+import AvailableServices  from './AvailableServices';
+import ThreeSteps from './ThreeSteps'
 
-import DefaultLayout from '../layout/DefaultLayout';
-import { CoverServices } from './CoverServices';
 
-export const ServicesPage = () => {
+const ServicesPage = () => {
   return (
-    <>
-      <DefaultLayout>
-      <CoverServices />
-      </DefaultLayout>
-    </>
+    <div>
+      {/* <DefaultLayout>
+      <CoverServices></CoverServices>
+      </DefaultLayout> */}
+      <CoverServices/>
+      <AvailableServices/>
+      <ThreeSteps/>
+    </div>
+
+
   );
 };
 
 export default ServicesPage;
-
