@@ -412,7 +412,7 @@ export default function Dashboard() {
 
 
   return (
-    <PortalLayout>
+      <PortalLayout>
       <div className="perfil">
         <div className="profile-header" onClick={() => setEditingProfileImage(true)}>
           <div className={transparentBackground ?"opaque": ""}>
@@ -477,24 +477,22 @@ export default function Dashboard() {
         </div>
       </div>
       {isVisible ? (
-        <ul className='collageImage'>
+        <ul className='container py-4'>
 
           {publicaciones.map((publicacion, index) => (
-            <li className='card' key={index}>
-              <div className='delete'>
-                <div className='Perfile-img'>
-                  <img src="" alt="" />
-                </div>
-                <h2>{auth.getUser()?.name ?? ""}</h2>
+            <li className='card' key={index} style={{width:'20rem'}}>
+              <div className='card-body'>
+                <div style={{display:'flex',justifyContent:'space-between'}}>
+                <h2 className='card-title'>{auth.getUser()?.name ?? ""}</h2>
                 <button onClick={() => {
                   modalHandler(true, publicacion?.image, publicacion?.id, publicacion?.description, publicacion?.name)
                 }} className='btn btn-dark'>Ver</button>
               </div>
               
-              <p className='decription'>{publicacion?.description}</p>
+              <p className='decription card-text'>{publicacion?.description}</p>
               <img className='card-image' src={publicacion?.image} alt="" /><br /><br />
               <div className="btn-container">
-
+              </div>
               </div>
               <Modal className='card' style={{ content: { width: '50%', margin: '0 auto', marginTop: '100px' } }} isOpen={modalIsOpen} onRequestClose={() => modalHandler(false, '', '', '', '',)}>
                 <div >
@@ -502,7 +500,7 @@ export default function Dashboard() {
                     <button onClick={() => deleteHandler()} className='btn btn-danger'>ELIMINAR</button>
                     <button className='btn btn-danger' onClick={() => modalHandler(false, '', '', '', '')}>X</button>
                   </div>
-                  <img style={{ padding: 10, width: '100%' }} src={currenImage || ''} alt="" />
+                  <img  className='card-img-button'  src={currenImage || ''} alt="" />
                 </div>
               </Modal>
             </li>
@@ -511,28 +509,33 @@ export default function Dashboard() {
         </ul>
       ) : (
         <section className='Container' id='galeri'>
-          <div className='text-center pt-5'>
-            <ul className='row'>
+          <div className='text-center py-5'>
+            <ul className='row mx-5 list-unstyled'>
               {Array.isArray(publicacionesUsuarios) && publicacionesUsuarios.map((usuarioPublicaciones, index) => (
                 Array.isArray(usuarioPublicaciones) && usuarioPublicaciones.map((publicacion, subIndex) => (
-                  <li className='col-lg-4 list-unstyled mb-4 ' key={`${index}-${subIndex}`}>
+                  <li className='col lm-5 ' key={`${index}-${subIndex}`}>
+                   <div className='card' style={{width:'18rem'}}>
                     <div className='delete'>
-                      <h2 className='nameUser'>{(publicacion.name) ?? ""}</h2>
+                      <h2 className='title-text'>{(publicacion.name) ?? ""}</h2>
                       <button onClick={() => {
                         modalHandler(true, publicacion?.image, publicacion?.id, publicacion?.description, publicacion?.name)
                       }} className='btn btn-dark'>Ver</button>
                     </div>
                     
-                    <p className='decription'>{publicacion?.description}</p>
-                    <img className='card-image p-3 ' src={publicacion?.image} alt="" />
+                    <p className='h5 card-text'>{publicacion?.description}</p>
+                    <img className='card-image-top ' src={publicacion?.image} alt="" />
                     {/* <button className='citas'></button><h4>AGENDA</h4> */}
+                    </div>
                   </li>
+                  
                 ))
               ))}
             </ul>
-            <Chat />
+            
           </div>
+          
         </section>
+       
       )}
 
       <Modal className='card' style={{ content: { width: '50%', margin: '0 auto', marginTop: '100px' } }} isOpen={modalIsOpen} onRequestClose={() => modalHandler(false, '', '', '', '')}>
@@ -573,7 +576,7 @@ export default function Dashboard() {
           </div>
         </div>
       </Modal>
-
+      <Chat />
     </PortalLayout>
 
   );
