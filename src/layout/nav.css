@@ -1,17 +1,28 @@
 .header-dashboard{
-    background: #515151;
-    height: 100px;
+    background: #515151; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 120px;
 }
 .li-dashboard .a{
     color: #fff;
 }
+.logo{
+    filter: invert(100%);
+    height: 150px;
+    width: 190px;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .componet{
     display: flex;
-    justify-content: end;
     gap: 40px;
     list-style: none;
-    padding: 15px;
     align-items: center;
     padding-top: 35px;
     padding-right: 50px;
