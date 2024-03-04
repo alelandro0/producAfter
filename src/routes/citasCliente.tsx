@@ -64,7 +64,8 @@ const CitasCliente = () => {
         <h1 className="text-center" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '3.5rem', fontWeight: 'bold', color: '#3c3c3c' }}>
           Mis Citas
         </h1>
-        <div className="row justify-content-center">
+        {Array.isArray(datos) && datos.length > 0 ? (
+          <div className="row justify-content-center">
             {datos.map((cita, index) => (
               <div key={index} className="col-md-6 mt-4">
                 <div className="card h-auto">
@@ -77,8 +78,12 @@ const CitasCliente = () => {
                 </div>
               </div>
             ))}
-          
-        </div>
+          </div>
+        ) : (
+          <div className="text-center mt-4">
+            <h2>No tiene citas disponibles</h2>
+          </div>
+        )}
       </div>
       <Chat/>
     </PortalLayout>

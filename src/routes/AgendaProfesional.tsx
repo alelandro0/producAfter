@@ -70,28 +70,34 @@ const AgendaProfesional: React.FC = () => {
     return (
         <PortalLayout>
         <div className="container mt-5">
-            <h1 className="text-center" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '3.5rem', fontWeight: 'bold', color: '#3c3c3c' }}>Cronograma de Trabajo</h1>
-        
-            <div className="row justify-content-center">
-                {datos.map((cita, index) => (
-                    <div key={index} className="col-md-6 mt-4">
-                        <div className="card">
-                            <div className="card-body">
-                                <img src={cita.userImageProfile} className="card-img-top rounded-circle m-2" alt="Imagen de perfil" style={{ width: '150px', height: '150px' }}/>
-                                <h2 className='modal-header' style={{background:'#3c3c3c'}}>Cita Programada</h2>
-                                <div style={{width:"100%",padding:'25px',background:'#3c3c3c',borderRadius:12,color:'white'}}>
-                                    <h1 className="card-title">Fecha: {formatFecha(cita.date)}</h1>
-                                    <h1 className="card-title">Hora: {formatHora(cita.hora)}</h1>
-                                    <h1 className="card-title">Nombre del Cliente: {cita.userName}</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+          <h1 className="text-center" style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '3.5rem', fontWeight: 'bold', color: '#3c3c3c' }}>Cronograma de Trabajo</h1>
+      
+          {datos.length === 0 ? (
+            <div className="text-center mt-4">
+              <h2>No hay citas disponibles</h2>
             </div>
+          ) : (
+            <div className="row justify-content-center">
+              {datos.map((cita, index) => (
+                <div key={index} className="col-md-6 mt-4">
+                  <div className="card">
+                    <div className="card-body">
+                      <img src={cita.userImageProfile} className="card-img-top rounded-circle m-2" alt="Imagen de perfil" style={{ width: '150px', height: '150px' }}/>
+                      <h2 className='modal-header' style={{background:'#3c3c3c'}}>Cita Programada</h2>
+                      <div style={{width:"100%",padding:'25px',background:'#3c3c3c',borderRadius:12,color:'white'}}>
+                        <h1 className="card-title">Fecha: {formatFecha(cita.date)}</h1>
+                        <h1 className="card-title">Hora: {formatHora(cita.hora)}</h1>
+                        <h1 className="card-title">Nombre del Cliente: {cita.userName}</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         <Chat />
-    </PortalLayout>
+      </PortalLayout>
     );
 }
 
