@@ -99,7 +99,7 @@ export default function Dashboard() {
 
 
       // Subir la nueva imagen
-      const responsePost = await fetch("https://backmultiservicios.onrender.com/api/upload", {
+      const responsePost = await fetch("http://localhost:5000/api/upload", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${auth.getAccessToken()}`,
@@ -132,7 +132,7 @@ export default function Dashboard() {
       const id = auth.getUser()?.id
 
       console.log('ID of user Profile', id);
-      const response = await fetch(`https://backmultiservicios.onrender.com/api/getImage/${id}`, {
+      const response = await fetch(`http://localhost:5000/api/getImage/${id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -191,7 +191,7 @@ export default function Dashboard() {
       const accessToken = auth.getAccessToken();
       console.log('Token de publicacion', accessToken);
 
-      const response = await fetch("https://backmultiservicios.onrender.com/api/publicationpost", {
+      const response = await fetch("http://localhost:5000/api/publicationpost", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -234,7 +234,7 @@ export default function Dashboard() {
 
       const id = auth.getUser()?.id
       console.log('ID of user', id);
-      const response = await fetch(`https://backmultiservicios.onrender.com/api/publicationget/${id}`, {
+      const response = await fetch(`http://localhost:5000/api/publicationget/${id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -290,7 +290,7 @@ export default function Dashboard() {
 
       // Realizar la eliminación de la imagen utilizando su ID
       const idUser = auth.getUser()?.id;
-      const response = await fetch(`https://backmultiservicios.onrender.com/api/delete/${idUser}/publications/${imageIDToDelete}`, {
+      const response = await fetch(`http://localhost:5000/api/delete/${idUser}/publications/${imageIDToDelete}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -323,7 +323,7 @@ export default function Dashboard() {
   };
   const getPublishAllUsers = async () => {
     try {
-      const response = await fetch(`https://backmultiservicios.onrender.com/api/publicationgetAll`, {
+      const response = await fetch(`http://localhost:5000/api/publicationgetAll`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -377,7 +377,7 @@ export default function Dashboard() {
         id: auth.getUser()?.id  // Asegúrate de obtener este valor de donde corresponda
       };
 
-      const response = await fetch(`https://backmultiservicios.onrender.com/api/citas`, {
+      const response = await fetch(`http://localhost:5000/api/citas`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -412,7 +412,7 @@ export default function Dashboard() {
 
 
   return (
-      <PortalLayout>
+    <PortalLayout>
       <div className="perfil">
         <div className="profile-header" onClick={() => setEditingProfileImage(true)}>
           <div className={transparentBackground ?"opaque": ""}>
@@ -494,13 +494,13 @@ export default function Dashboard() {
               <div className="btn-container">
               </div>
               </div>
-              <Modal className='card' style={{ content: { width: '50%', margin: '0 auto', marginTop: '100px' } }} isOpen={modalIsOpen} onRequestClose={() => modalHandler(false, '', '', '', '',)}>
+              <Modal className='card' style={{ content: { width: '400px', margin: '0 auto', marginTop: '100px' } }} isOpen={modalIsOpen} onRequestClose={() => modalHandler(false, '', '', '', '',)}>
                 <div >
                   <div className='card-body' style={{ display: 'flex', justifyContent: 'space-between', width: "100%" }}>
                     <button onClick={() => deleteHandler()} className='btn btn-danger'>ELIMINAR</button>
                     <button className='btn btn-danger' onClick={() => modalHandler(false, '', '', '', '')}>X</button>
                   </div>
-                  <img  className='card-img-button'  src={currenImage || ''} alt="" />
+                  <img style={{ padding: 10, width: '400px' ,height:310}} className='card-img-button' src={currenImage || ''} alt="" />
                 </div>
               </Modal>
             </li>
@@ -538,7 +538,7 @@ export default function Dashboard() {
        
       )}
 
-      <Modal className='card' style={{ content: { width: '50%', margin: '0 auto', marginTop: '100px' } }} isOpen={modalIsOpen} onRequestClose={() => modalHandler(false, '', '', '', '')}>
+      <Modal className='card' style={{ content: { width: '400px', margin: '0 auto', marginTop: '100px' } }} isOpen={modalIsOpen} onRequestClose={() => modalHandler(false, '', '', '', '')}>
         <div >
           <div className='card-body' style={{ display: 'flex', justifyContent: 'space-between', width: "100%" }}>
             <button className='btn btn-dark' onClick={() => modalHandlerAgendar(true, fechas, horas, descripcionP)}>Agendar</button>
@@ -546,7 +546,7 @@ export default function Dashboard() {
             <button className='btn btn-danger' onClick={() => modalHandler(false, '', '', '', '')}>X</button>
 
           </div>
-          <img style={{ padding: 10, width: '100%' }} src={currenImage || ''} alt="" />
+          <img className='card-image-top' style={{ padding: 10, width: '400px' ,height:310}} src={currenImage || ''} alt="" />
         </div>
       </Modal>
       <Modal className='card' style={{ content: { width: '30%', margin: '0 auto', marginTop: '100px' } }} isOpen={agendarModalIsOpen} onRequestClose={() => modalHandlerAgendar(false, '', '', '')}>
