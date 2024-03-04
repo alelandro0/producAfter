@@ -261,12 +261,7 @@ export default function Dashboard() {
         setError(error);
       } else {
         console.log("error al treer la publicacion");
-        await Swal.fire({
-          icon: 'error',
-          title: '¡Error!',
-          text: 'Ocurrió un error al mostrar la publicacion.',
-
-        });
+       
       }
     }
   };
