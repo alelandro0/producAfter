@@ -99,7 +99,7 @@ export default function Dashboard() {
 
 
       // Subir la nueva imagen
-      const responsePost = await fetch("http://localhost:5000/api/upload", {
+      const responsePost = await fetch("https://backmultiservicios.onrender.com/api/upload", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${auth.getAccessToken()}`,
@@ -132,7 +132,7 @@ export default function Dashboard() {
       const id = auth.getUser()?.id
 
       console.log('ID of user Profile', id);
-      const response = await fetch(`http://localhost:5000/api/getImage/${id}`, {
+      const response = await fetch(`https://backmultiservicios.onrender.com/api/getImage/${id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -191,7 +191,7 @@ export default function Dashboard() {
       const accessToken = auth.getAccessToken();
       console.log('Token de publicacion', accessToken);
 
-      const response = await fetch("http://localhost:5000/api/publicationpost", {
+      const response = await fetch("https://backmultiservicios.onrender.com/api/publicationpost", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -234,7 +234,7 @@ export default function Dashboard() {
 
       const id = auth.getUser()?.id
       console.log('ID of user', id);
-      const response = await fetch(`http://localhost:5000/api/publicationget/${id}`, {
+      const response = await fetch(`https://backmultiservicios.onrender.com/api/publicationget/${id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -285,7 +285,7 @@ export default function Dashboard() {
 
       // Realizar la eliminación de la imagen utilizando su ID
       const idUser = auth.getUser()?.id;
-      const response = await fetch(`http://localhost:5000/api/delete/${idUser}/publications/${imageIDToDelete}`, {
+      const response = await fetch(`https://backmultiservicios.onrender.com/api/delete/${idUser}/publications/${imageIDToDelete}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -318,7 +318,7 @@ export default function Dashboard() {
   };
   const getPublishAllUsers = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/publicationgetAll`, {
+      const response = await fetch(`https://backmultiservicios.onrender.com/api/publicationgetAll`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -366,7 +366,7 @@ export default function Dashboard() {
         id: auth.getUser()?.id  // Asegúrate de obtener este valor de donde corresponda
       };
 
-      const response = await fetch(`http://localhost:5000/api/citas`, {
+      const response = await fetch(`https://backmultiservicios.onrender.com/api/citas`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
