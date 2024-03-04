@@ -14,6 +14,7 @@ body {
 
 #img-chat {
   width: 120px;
+  height: 180px;
   border-radius: 8%;
   padding: 10px;
   border: none;
@@ -23,11 +24,10 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  
 }
 
 #img-chat:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   transform: scale(1.1);
 }
 
@@ -159,8 +159,8 @@ body {
   }
 }
 .botImage{
- background: url('https://firebasestorage.googleapis.com/v0/b/react-firebase-upload-480ee.appspot.com/o/ImagePublication%2FBlack%20White%20Minimalist%20Elegant%20Calligraphy%20Email%20Signature.png_1709441462615?alt=media&amp;token=dcd2c4c7-62c3-48e7-8199-01177c50ef52');
- background-size: contain;
+ background: url('https://firebasestorage.googleapis.com/v0/b/react-firebase-upload-480ee.appspot.com/o/ImagePublication%2Fboot-removebg-preview.png_1709524892068?alt=media&amp;token=92cd6726-2284-4d76-a65b-a47b4b0966cf');
+ background-size: cover;
  background-position: center;
  background-repeat: no-repeat;
  height: 60px;
